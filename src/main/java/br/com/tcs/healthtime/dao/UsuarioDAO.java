@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.tcs.healthtime.dto.Cpf;
 import br.com.tcs.healthtime.model.Usuario;
 import br.com.tcs.healthtime.repository.UsuarioRepository;
 
@@ -38,6 +39,17 @@ public class UsuarioDAO {
 		Usuario usuario = null;
 		try {
 			return usuario = repository.findId(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return usuario;
+		}
+	}
+	
+	public Usuario findByCpf(String cpfParam) {
+		Usuario usuario = null;
+		try {
+			System.out.println("findByCpf"+cpfParam);
+			return usuario = repository.findByCpf(cpfParam);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return usuario;

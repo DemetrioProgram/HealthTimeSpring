@@ -1,13 +1,10 @@
 package br.com.tcs.healthtime.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,17 +26,13 @@ public class Endereco {
 	private String cidade;
 	@Column(name="uf", nullable = false)
 	private String uf;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "cdUsuario", referencedColumnName = "cdUsuario", nullable = false)
-	private Usuario usuario;
 	
 	public Endereco() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Endereco(Integer cdEndereco, String cep, String rua, Integer numero, String bairro, String cidade, String uf,
-			Usuario usuario) {
+	public Endereco(Integer cdEndereco, String cep, String rua, Integer numero, String bairro, String cidade, String uf) {
 		super();
 		this.cdEndereco = cdEndereco;
 		this.cep = cep;
@@ -48,10 +41,9 @@ public class Endereco {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.uf = uf;
-		this.usuario = usuario;
 	}
 
-	public Endereco(String cep, String rua, Integer numero, String bairro, String cidade, String uf, Usuario usuario) {
+	public Endereco(String cep, String rua, Integer numero, String bairro, String cidade, String uf) {
 		super();
 		this.cep = cep;
 		this.rua = rua;
@@ -59,7 +51,6 @@ public class Endereco {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.uf = uf;
-		this.usuario = usuario;
 	}
 
 	public Integer getCdEndereco() {
@@ -118,18 +109,10 @@ public class Endereco {
 		this.uf = uf;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
 	@Override
 	public String toString() {
 		return "Endereco [cdEndereco=" + cdEndereco + ", cep=" + cep + ", rua=" + rua + ", numero=" + numero
-				+ ", bairro=" + bairro + ", cidade=" + cidade + ", uf=" + uf + ", usuario=" + usuario + "]";
+				+ ", bairro=" + bairro + ", cidade=" + cidade + ", uf=" + uf + "]";
 	}
 
 }
