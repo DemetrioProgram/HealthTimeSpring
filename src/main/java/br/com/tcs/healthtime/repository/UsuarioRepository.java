@@ -17,5 +17,8 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long>,JpaRepo
 	
 	@Query(value = "SELECT * FROM usuario WHERE nome LIKE ?1%", nativeQuery = true)
 	List<Usuario> findByName(String name);
+	
+	@Query(value = "SELECT * FROM usuario WHERE cpf=?1", nativeQuery = true)
+	Usuario findByCpf(String cpf);
 
 }
