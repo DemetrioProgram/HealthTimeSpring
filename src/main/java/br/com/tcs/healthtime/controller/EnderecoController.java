@@ -34,6 +34,7 @@ public class EnderecoController {
 	@PostMapping(value = "/salvarEndereco", produces = "application/json", consumes = "application/json")
 	public ResponseEntity<ApiResponse> saveUser(@RequestBody Endereco endereco) {
 		Endereco novoEndereco = null;
+		
 		try {
 			Endereco enderecoNovo = endereco;
 			System.out.println(endereco);
